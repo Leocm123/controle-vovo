@@ -1,26 +1,38 @@
 @import "tailwindcss";
 
+/* Tema claro, alto contraste e fontes grandes — pensado para pessoas de idade. */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f1f5f9;
+  --surface: #ffffff;
+  --foreground: #0f172a;
+  --muted: #475569;
+  --border: #cbd5e1;
+  --primary: #1d4ed8;
 }
 
 @theme inline {
   --color-background: var(--background);
+  --color-surface: var(--surface);
   --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+  --color-primary: var(--primary);
   --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html {
+  font-size: 18px; /* base grande para leitura fácil */
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-geist-sans), system-ui, Arial, sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Alvos de toque confortáveis. */
+button,
+a {
+  touch-action: manipulation;
 }
